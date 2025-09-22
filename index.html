@@ -70,10 +70,26 @@
     </nav>
 
     <!-- Home Section -->
-    <section id="home">
-        <h2>Welcome to SecuCheck</h2>
-        <p>Leading provider of cybersecurity, internal auditing, and compliance assurance services. Helping organizations build digital trust through security, quality, and compliance.</p>
-    </section>
+    <!-- Home Section with Slider -->
+<section id="home">
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <h2>Leading provider of cybersecurity, internal auditing, and compliance assurance services.</h2>
+                <p>Helping organizations build digital trust through security, quality, and compliance.</p>
+            </div>
+            <div class="slide">
+                <h2>SecuCheck empowers organizations to achieve regulatory compliance and security excellence.</h2>
+                <p>Tailored solutions for internal audits, software security, and vulnerability assessments.</p>
+            </div>
+            <div class="slide">
+                <h2>Certified professionals delivering risk assessments, audits, and secure software solutions.</h2>
+                <p>Our commitment ensures transparency, quality, and measurable results for every client.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <!-- About Us Section -->
     <section id="about">
@@ -212,6 +228,18 @@
     <footer>
         <p>&copy; 2025 SecuCheck. All rights reserved.</p>
     </footer>
+<script>
+// Simple automatic slider
+let currentIndex = 0;
+const slides = document.querySelector('.slides');
+const totalSlides = document.querySelectorAll('.slide').length;
+
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+}, 4000); // change slide every 4 seconds
+</script>
 
 </body>
 </html>
+

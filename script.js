@@ -15,3 +15,14 @@ setInterval(() => {
 }, 5000);
 
 // Optional: form validation can go here
+
+// Show services cards on scroll
+const cards = document.querySelectorAll('.card');
+window.addEventListener('scroll', () => {
+    cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 50) {
+            card.classList.add('show');
+        }
+    });
+});

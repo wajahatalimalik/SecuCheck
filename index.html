@@ -1,15 +1,217 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>SecuCheck</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecuCheck - Cybersecurity & Compliance Solutions</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        h1 { color: #2F4F4F; }
-        p { color: #555; }
+        /* Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        a { text-decoration: none; color: inherit; }
+        section { padding: 60px 20px; }
+
+        /* Navbar */
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: #1f2937; color: #fff;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 40px; z-index: 1000;
+        }
+        nav h1 { font-size: 1.5em; color: #38bdf8; }
+        nav ul { display: flex; gap: 20px; list-style: none; }
+        nav ul li a { color: #fff; transition: 0.3s; }
+        nav ul li a:hover { color: #38bdf8; }
+
+        /* Hero */
+        #home {
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            height: 100vh; background: #38bdf8; color: #fff; text-align: center;
+        }
+        #home h2 { font-size: 3em; margin-bottom: 20px; }
+        #home p { font-size: 1.2em; max-width: 700px; }
+
+        /* Sections */
+        section h2 { font-size: 2em; margin-bottom: 20px; color: #1f2937; }
+        section p, section li { margin-bottom: 10px; }
+
+        /* Services grid */
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .service-box { background: #f3f4f6; padding: 20px; border-radius: 10px; transition: 0.3s; }
+        .service-box:hover { background: #e0f2fe; }
+
+        /* Pricing table */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        table, th, td { border: 1px solid #ddd; }
+        th, td { padding: 12px; text-align: left; }
+        th { background: #38bdf8; color: #fff; }
+
+        /* Footer */
+        footer { background: #1f2937; color: #fff; text-align: center; padding: 20px; }
+
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
-    <h1>Welcome to SecuCheck</h1>
-    <p>Your security check solutions start here.</p>
+
+    <!-- Navbar -->
+    <nav>
+        <h1>SecuCheck</h1>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#industries">Industries</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h2>Welcome to SecuCheck</h2>
+        <p>Leading provider of cybersecurity, internal auditing, and compliance assurance services. Helping organizations build digital trust through security, quality, and compliance.</p>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>SecuCheck is a cybersecurity and compliance assurance firm based in Rawalpindi, Pakistan. We specialize in ISO 27001, ISO 27701, ISO 9001, SOC 2, SOX ITGC, HITRUST implementation, VAPT, software quality assurance, and application security testing.</p>
+        <p>Our team of certified professionals (CISA, CISM, ISO Lead Auditors) strengthens security postures, ensures regulatory compliance, and builds digital trust for organizations worldwide.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Core Services</h2>
+        <div class="services">
+            <div class="service-box">
+                <h3>Information Security Framework</h3>
+                <ul>
+                    <li>ISO 27001 – Information Security Management</li>
+                    <li>ISO 27701 – Privacy Information Management</li>
+                    <li>ISO 9001 – Quality Management Systems</li>
+                    <li>SOC 2 – Trust Services Criteria</li>
+                    <li>SOX ITGC – Sarbanes-Oxley IT Controls</li>
+                    <li>HITRUST CSF – Healthcare Security Framework</li>
+                </ul>
+            </div>
+            <div class="service-box">
+                <h3>Internal Auditing Services</h3>
+                <ul>
+                    <li>Risk-based audit planning</li>
+                    <li>ITGC reviews (SOX, SOC2 readiness)</li>
+                    <li>Control design & effective assessments</li>
+                    <li>Policy & procedure evaluation</li>
+                    <li>Compliance gap identification</li>
+                    <li>Audit remediation support</li>
+                </ul>
+            </div>
+            <div class="service-box">
+                <h3>Vulnerability Assessment & Penetration Testing</h3>
+                <ul>
+                    <li>Black Box Testing</li>
+                    <li>Grey Box Testing</li>
+                    <li>Manual Penetration Testing</li>
+                    <li>Automated Scanning</li>
+                    <li>Deliverables: Risk Reports, PoCs, Remediation Guidance</li>
+                </ul>
+            </div>
+            <div class="service-box">
+                <h3>Application Security Testing</h3>
+                <ul>
+                    <li>Secure code reviews</li>
+                    <li>SAST & DAST techniques</li>
+                    <li>OWASP Top 10 & CWE Top 25 coverage</li>
+                    <li>Business logic flaw detection</li>
+                    <li>DevSecOps alignment</li>
+                </ul>
+            </div>
+            <div class="service-box">
+                <h3>Software Quality Assurance</h3>
+                <ul>
+                    <li>Functional, regression, and performance testing</li>
+                    <li>Manual and automated test execution</li>
+                    <li>Compliance-ready, bug-free software</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <h2>Pricing Model</h2>
+        <table>
+            <tr>
+                <th>Service Category</th>
+                <th>Pricing Tier (USD)</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Internal Auditing (ITGC / Compliance)</td>
+                <td>$1,000 – $3,500 / month</td>
+                <td>Based on scope (SOX, SOC2 readiness, ISO audit support)</td>
+            </tr>
+            <tr>
+                <td>ISO / Compliance Framework Implementation</td>
+                <td>$1,200 – $3,000 / standard</td>
+                <td>Includes gap analysis, policies, procedures</td>
+            </tr>
+            <tr>
+                <td>Vulnerability Assessment & Penetration Testing (VAPT)</td>
+                <td>$500 – $4,000 / app</td>
+                <td>Depends on methodology (black/grey box, automation/manual)</td>
+            </tr>
+            <tr>
+                <td>Software Quality Assurance (SQA)</td>
+                <td>$800 – $2,500 / app</td>
+                <td>Functional, regression, performance</td>
+            </tr>
+            <tr>
+                <td>Application Security Testing</td>
+                <td>$1,000 – $4,000 / release</td>
+                <td>Includes SAST, DAST, secure code review</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries">
+        <h2>Industries We Serve</h2>
+        <ul>
+            <li>Financial Services & Fintech</li>
+            <li>Healthcare & Telehealth</li>
+            <li>SaaS & IT Companies</li>
+            <li>Government & Public Sector</li>
+            <li>E-commerce & Retail</li>
+            <li>Educational Institutions</li>
+        </ul>
+        <h3>Clients:</h3>
+        <ul>
+            <li>PackageX – USA</li>
+            <li>DAHA – Islamabad</li>
+            <li>VisionX – Islamabad</li>
+            <li>SpendConsole – Australia</li>
+            <li>Axellient – USA</li>
+            <li>Mercurial Minds – Pakistan</li>
+            <li>Santcore – USA</li>
+            <li>Uexel – Pakistan</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@secucheck.net</p>
+        <p>Website: <a href="https://www.secucheck.net" target="_blank">www.secucheck.net</a></p>
+        <p>Location: Rawalpindi, Pakistan</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 SecuCheck. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>

@@ -10,7 +10,7 @@
     /* General styles */
     body { margin:0; font-family: Arial, sans-serif; line-height:1.6; background:#f8f8f8; color:#003366; }
     a { text-decoration:none; color:inherit; }
-    h1,h2,h3 { margin:0 0 10px; }
+    h1,h2,h3 { margin:0 0 10px; color:#006633; } /* Dark green headings */
     section { padding:60px 20px; max-width:1200px; margin:0 auto; }
     .btn { background:#004080; color:#fff; border:none; padding:10px 20px; cursor:pointer; font-weight:bold; }
     .btn:hover { background:#0066cc; }
@@ -21,15 +21,13 @@
     .logo .secu { color:#003366; }
     .logo .check { color:#006633; }
     nav ul { display:flex; list-style:none; gap:20px; }
-    nav ul li { }
     nav ul li a { font-weight:bold; color:#003366; }
-    /* Hamburger */
     .hamburger { display:none; flex-direction:column; cursor:pointer; }
     .hamburger span { height:3px; width:25px; background:#003366; margin:4px 0; }
 
     /* Banner Slider */
     .banner-slider { position:relative; height:300px; background:#003366; color:#fff; display:flex; justify-content:center; align-items:center; text-align:center; overflow:hidden; padding:0 20px; }
-    .banner-slider .slide { position:absolute; width:100%; opacity:0; transition:opacity 1s ease-in-out; font-size:22px; }
+    .banner-slider .slide { position:absolute; width:100%; opacity:0; transition:opacity 1s ease-in-out; font-size:28px; font-weight:bold; } /* bold + bigger */
     .banner-slider .slide.active { opacity:1; }
 
     /* About Us */
@@ -86,12 +84,9 @@
 
 <!-- Banner -->
 <section class="banner-slider">
-    <div class="slide active">
-        Leading provider of cybersecurity, internal auditing, and compliance assurance services.
-    </div>
-    <div class="slide">
-        Helping organizations build digital trust through security, quality, and compliance.
-    </div>
+    <div class="slide active">Leading provider of cybersecurity, internal auditing, and compliance assurance services.</div>
+    <div class="slide">Helping organizations build digital trust through security, quality, and compliance.</div>
+    <div class="slide">Empowering businesses with secure and compliant solutions worldwide.</div>
 </section>
 
 <!-- About Us -->
@@ -221,43 +216,41 @@
 <section id="contact">
     <h2>Contact Us</h2>
     <form action="https://formspree.io/f/xwpreywa" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <input type="tel" name="phone" placeholder="Your Phone">
-        <input type="text" name="company" placeholder="Your Company">
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="phone" placeholder="Phone" required>
+        <input type="text" name="company" placeholder="Company">
+        <textarea name="message" placeholder="Message" required></textarea>
         <button type="submit" class="btn">Send Message</button>
     </form>
 </section>
 
+<script src="script.js"></script>
 <script>
-/* Banner Slider */
-let slides = document.querySelectorAll('.banner-slider .slide');
-let currentSlide = 0;
-function nextSlide() {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide+1)%slides.length;
-    slides[currentSlide].classList.add('active');
-}
-setInterval(nextSlide, 4000);
+    // Hamburger menu toggle
+    function toggleMenu() {
+        document.querySelector('nav ul').classList.toggle('show');
+    }
 
-/* Hamburger Menu */
-function toggleMenu() {
-    document.querySelector('nav ul').classList.toggle('show');
-}
+    // Banner slider
+    let slides = document.querySelectorAll('.banner-slider .slide');
+    let currentSlide = 0;
+    setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }, 5000);
 
-/* Reveal Cards on Scroll */
-function revealOnScroll() {
-    let cards = document.querySelectorAll('.card, table tr');
-    let windowHeight = window.innerHeight;
-    cards.forEach(card => {
-        let top = card.getBoundingClientRect().top;
-        if(top < windowHeight-100) card.classList.add('show');
+    // Show services cards on scroll
+    const cards = document.querySelectorAll('.card');
+    window.addEventListener('scroll', () => {
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if(rect.top < window.innerHeight - 50) {
+                card.classList.add('show');
+            }
+        });
     });
-}
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
 </script>
-
 </body>
 </html>

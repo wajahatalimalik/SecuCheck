@@ -5,161 +5,237 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SecuCheck - Cybersecurity, auditing, and compliance assurance services. Build digital trust through security, quality, and compliance.">
     <title>SecuCheck</title>
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Basic Reset & Typography */
+        /* Reset & Typography */
         * {margin:0; padding:0; box-sizing:border-box;}
-        body {font-family: Arial, sans-serif; line-height:1.6; color:#333;}
+        body {font-family: Arial, sans-serif; line-height:1.6; color:#333; background:#f9f9f9;}
         a {text-decoration:none; color:inherit;}
         ul {list-style:none;}
 
         /* Header */
-        header {display:flex; justify-content:space-between; align-items:center; padding:20px; background:#f9f9f9; position:sticky; top:0; z-index:1000;}
+        header {display:flex; justify-content:space-between; align-items:center; padding:20px; background:#fff; position:sticky; top:0; z-index:1000; border-bottom:2px solid #003366;}
         .logo a {font-weight:bold; font-size:24px;}
-        .logo a .secu {color:navy;}
-        .logo a .check {color:darkgreen;}
+        .logo a .secu {color:#003366;}
+        .logo a .check {color:#006400;}
         nav ul {display:flex; gap:20px;}
-        nav ul li a {padding:5px 10px; transition:0.3s;}
-        nav ul li a:hover {background:#ddd; border-radius:5px;}
+        nav ul li a {padding:5px 10px; color:#003366; transition:0.3s; font-weight:bold;}
+        nav ul li a:hover {background:#e6f0ff; border-radius:5px;}
 
-        /* Hamburger menu for mobile */
+        /* Hamburger */
         .hamburger {display:none; flex-direction:column; cursor:pointer;}
-        .hamburger div {width:25px; height:3px; background:#333; margin:4px 0;}
+        .hamburger div {width:25px; height:3px; background:#003366; margin:4px 0;}
         @media(max-width:768px){
-            nav ul {display:none; flex-direction:column; background:#f9f9f9; position:absolute; top:70px; right:20px; padding:10px; border-radius:5px;}
+            nav ul {display:none; flex-direction:column; background:#fff; position:absolute; top:70px; right:20px; padding:10px; border-radius:5px; border:1px solid #003366;}
             nav ul.show {display:flex;}
             .hamburger {display:flex;}
         }
 
         /* Banner */
-        .banner {background:#003366; color:#fff; text-align:center; padding:60px 20px; position:relative;}
-        .banner h1 {font-size:32px; margin-bottom:15px;}
-        .banner p {font-size:18px; max-width:600px; margin:0 auto;}
+        .banner {background:#003366; color:#fff; text-align:center; padding:50px 20px;}
+        .banner h1 {font-size:28px; margin-bottom:15px;}
+        .banner p {font-size:18px; max-width:700px; margin:0 auto;}
 
-        /* Sections */
-        section {padding:60px 20px;}
-        h2 {color:navy; margin-bottom:20px; text-align:center;}
-        .about p, .services p {max-width:800px; margin:0 auto 20px auto; text-align:center;}
-        
+        /* Section styling */
+        section {padding:60px 20px; max-width:1200px; margin:0 auto;}
+        h2 {color:#003366; margin-bottom:20px; text-align:center;}
+        h3 {color:#006400; margin-bottom:10px;}
+        .about p, .services p {max-width:900px; margin:0 auto 20px auto; text-align:center;}
+        ul li {margin-bottom:8px;}
+
         /* Services Cards */
-        .services-cards {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px; margin-top:30px;}
-        .card {padding:20px; border:1px solid #ddd; border-radius:10px; text-align:left; background:#f9f9f9;}
-        .card h3 {color:darkgreen; margin-bottom:10px;}
-        .card ul {margin-top:10px;}
-        .card ul li {margin-bottom:5px;}
+        .services-cards {display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin-top:30px;}
+        .card {padding:20px; border:1px solid #ccc; border-radius:10px; background:#fff; text-align:left; transition:0.3s;}
+        .card:hover {box-shadow:0 4px 10px rgba(0,0,0,0.1);}
 
         /* Pricing Table */
-        table {width:100%; border-collapse:collapse; margin-top:20px;}
-        th, td {border:1px solid #ddd; padding:15px; text-align:center;}
-        th {background:navy; color:#fff;}
+        table {width:100%; border-collapse:collapse; margin-top:30px; background:#fff;}
+        th, td {border:1px solid #ccc; padding:15px; text-align:left;}
+        th {background:#003366; color:#fff;}
         td.highlight {background:#e6ffe6; font-weight:bold;}
 
         /* Industries */
-        .industries-list {display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; text-align:center;}
-        .industries-list div {padding:20px; border:1px solid #ddd; border-radius:10px; background:#f9f9f9;}
+        .industries-list {display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; text-align:center; margin-top:30px;}
+        .industries-list div {padding:20px; border-radius:10px; background:#fff; border:1px solid #ccc; transition:0.3s;}
+        .industries-list div:hover {background:#e6ffe6;}
 
         /* Contact Form */
         form {max-width:600px; margin:0 auto; display:flex; flex-direction:column; gap:15px;}
-        input, textarea {padding:10px; border:1px solid #ccc; border-radius:5px; width:100%;}
-        button {padding:12px; background:darkgreen; color:#fff; border:none; border-radius:5px; cursor:pointer; transition:0.3s;}
-        button:hover {background:navy;}
+        input, textarea {padding:12px; border:1px solid #ccc; border-radius:5px; width:100%;}
+        button {padding:12px; background:#006400; color:#fff; border:none; border-radius:5px; cursor:pointer; font-weight:bold; transition:0.3s;}
+        button:hover {background:#003366;}
 
         /* Footer */
-        footer {text-align:center; padding:20px; background:#f1f1f1; margin-top:40px;}
+        footer {text-align:center; padding:20px; background:#003366; color:#fff; margin-top:40px;}
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="logo"><a href="index.html"><span class="secu">Secu</span><span class="check">Check</span></a></div>
-        <nav>
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#industries">Industries</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
-        </nav>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div><div></div><div></div>
-        </div>
-    </header>
-
-    <!-- Banner -->
-    <section class="banner">
-        <h1>Leading Cybersecurity & Compliance Assurance</h1>
-        <p>Helping organizations build digital trust through security, quality, and compliance.</p>
-    </section>
-
-    <!-- About Us -->
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p><strong>Introduction:</strong> SecuCheck is a cybersecurity and compliance assurance firm based in Rawalpindi, Pakistan, specializing in internal auditing, information security framework implementation (ISO 27001, ISO 27701, ISO 9001, SOC 2, SOX ITGC, HITRUST), vulnerability assessment and penetration testing (manual and automated), software quality assurance, and application security testing. With a team of certified professionals (CISA, CISM, ISO Lead Auditors), SecuCheck helps organizations strengthen their security posture, achieve regulatory compliance, and build digital trust. Our client-focused approach ensures tailored solutions that protect data, reduce risk, and support secure business growth.</p>
-
-        <p><strong>Vision Statement:</strong> To be the most trusted global partner in security assurance, compliance, and training—enabling organizations to achieve excellence, resilience, and continual improvement.</p>
-
-        <p><strong>Mission Statement:</strong> Deliver internationally recognized, impartial, and value-driven security assurance, compliance, and training services. We promote quality, safety, and regulatory alignment across all sectors, building client confidence through competence, transparency, and ongoing enhancement of our services and systems.</p>
-
-        <p><strong>Corporate Policy Statement:</strong></p>
+<!-- Header -->
+<header>
+    <div class="logo"><a href="#home"><span class="secu">Secu</span><span class="check">Check</span></a></div>
+    <nav>
         <ul>
-            <li><strong>Impartiality & Integrity:</strong> We act objectively and without bias, ensuring assessments and recommendations are based solely on evidence and best practices.</li>
-            <li><strong>Client Satisfaction:</strong> We strive to exceed expectations by delivering timely, accurate, and value-driven services.</li>
-            <li><strong>Competence & Compliance:</strong> Our team comprises certified professionals with deep expertise in the latest security frameworks and technologies, maintaining rigorous internal controls and compliance with standards.</li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#industries">Industries</a></li>
+            <li><a href="#contact">Contact Us</a></li>
         </ul>
-    </section>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+    </div>
+</header>
 
-    <!-- Services -->
-    <section id="services" class="services">
-        <h2>Our Services</h2>
-        <div class="services-cards">
-            <div class="card">
-                <h3>Information Security Framework Implementation</h3>
-                <p>ISO 27001, ISO 27701, ISO 9001, SOC2, SOX ITGC, HITRUST</p>
-            </div>
-            <div class="card">
-                <h3>Internal Auditing Services</h3>
-                <ul>
-                    <li>Risk-based audit planning</li>
-                    <li>Control design & assessment</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Vulnerability Assessment & Penetration Testing (VAPT)</h3>
-                <ul>
-                    <li>Black Box Testing</li>
-                    <li>Grey Box Testing</li>
-                    <li>Automated Scanning</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Application Security Testing</h3>
-                <ul>
-                    <li>Secure code review</li>
-                    <li>SAST & DAST techniques</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Software Quality Assurance (SQA)</h3>
-                <ul>
-                    <li>Functional, regression, performance testing</li>
-                    <li>Manual & automated execution</li>
-                </ul>
-            </div>
+<!-- Banner -->
+<section class="banner">
+    <h1>Leading Cybersecurity & Compliance Assurance</h1>
+    <p>Helping organizations build digital trust through security, quality, and compliance.</p>
+</section>
+
+<!-- About Us -->
+<section id="about" class="about">
+    <h2>About Us</h2>
+    <p><strong>Introduction:</strong> SecuCheck is a cybersecurity and compliance assurance firm based in Rawalpindi, Pakistan, specializing in internal auditing, information security framework implementation (ISO 27001, ISO 27701, ISO 9001, SOC 2, SOX ITGC, HITRUST), vulnerability assessment and penetration testing (manual and automated), software quality assurance, and application security testing. With a team of certified professionals (CISA, CISM, ISO Lead Auditors), SecuCheck helps organizations strengthen their security posture, achieve regulatory compliance, and build digital trust. Our client-focused approach ensures tailored solutions that protect data, reduce risk, and support secure business growth.</p>
+
+    <p><strong>Vision Statement:</strong> To be the most trusted global partner in security assurance, compliance, and training—enabling organizations to achieve excellence, resilience, and continual improvement.</p>
+
+    <p><strong>Mission Statement:</strong> Deliver internationally recognized, impartial, and value-driven security assurance, compliance, and training services. We promote quality, safety, and regulatory alignment across all sectors, building client confidence through competence, transparency, and ongoing enhancement of our services and systems.</p>
+
+    <h3>Corporate Policy Statement</h3>
+    <ul>
+        <li><strong>Impartiality & Integrity:</strong> We act objectively and without bias, ensuring assessments and recommendations are based solely on evidence and best practices.</li>
+        <li><strong>Client Satisfaction:</strong> We strive to exceed expectations by delivering timely, accurate, and value-driven services.</li>
+        <li><strong>Competence & Compliance:</strong> Our team comprises certified professionals (CISSP, OSCP, ISO Lead Auditors, CISA) with deep expertise, maintaining rigorous internal controls and compliance with standards.</li>
+    </ul>
+</section>
+
+<!-- Services -->
+<section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="services-cards">
+        <div class="card">
+            <h3>Information Security Framework Implementation</h3>
+            <p>ISO 27001, ISO 27701, ISO 9001, SOC2, SOX ITGC, HITRUST</p>
         </div>
-    </section>
+        <div class="card">
+            <h3>Internal Auditing Services</h3>
+            <ul>
+                <li>Risk-based audit planning</li>
+                <li>Control design & assessment</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Vulnerability Assessment & Penetration Testing (VAPT)</h3>
+            <ul>
+                <li>Black Box Testing</li>
+                <li>Grey Box Testing</li>
+                <li>Manual & Automated Scanning</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Application Security Testing</h3>
+            <ul>
+                <li>Secure code review</li>
+                <li>SAST & DAST techniques</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Software Quality Assurance (SQA)</h3>
+            <ul>
+                <li>Functional, regression, performance testing</li>
+                <li>Manual & automated execution</li>
+            </ul>
+        </div>
+    </div>
+</section>
 
-    <!-- Pricing -->
-    <section id="pricing" class="pricing">
-        <h2>Pricing</h2>
-        <table>
-            <tr>
-                <th>Service</th>
-                <th>Price (USD)</th>
-                <th>Notes</th>
-            </tr>
-            <tr>
-                <td>Internal Auditing</td>
-                <td class="highlight">$1,000 – $3,500 / month</td>
+<!-- Pricing -->
+<section id="pricing" class="pricing">
+    <h2>Pricing</h2>
+    <table>
+        <tr>
+            <th>Service Category</th>
+            <th>Pricing Tier (USD)</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>Internal Auditing (ITGC / Compliance)</td>
+            <td class="highlight">$1,000 – $3,500 / audit / month</td>
+            <td>Based on scope (SOX, SOC2 readiness, ISO audit support)</td>
+        </tr>
+        <tr>
+            <td>ISO / Compliance Framework Implementation</td>
+            <td>$1,200 – $3,000 / standard / full project</td>
+            <td>Includes gap analysis, policies, procedures</td>
+        </tr>
+        <tr>
+            <td>Vulnerability Assessment & Penetration Testing (VAPT)</td>
+            <td>$500 – $4,000 / application / IP / scope</td>
+            <td>Depends on methodology (black/grey box, automation/manual)</td>
+        </tr>
+        <tr>
+            <td>Software Quality Assurance (SQA)</td>
+            <td>$800 – $2,500 / application / month</td>
+            <td>Functional, regression, performance</td>
+        </tr>
+        <tr>
+            <td>Application Security Testing</td>
+            <td>$1,000 – $4,000 / release / application</td>
+            <td>Includes SAST, DAST, secure code review</td>
+        </tr>
+    </table>
+</section>
+
+<!-- Competitive Advantage -->
+<section id="competitive" class="competitive">
+    <h2>Competitive Advantage</h2>
+    <table>
+        <tr><th>Feature</th><th>Value</th></tr>
+        <tr><td>Certified Professionals</td><td>CISSP, OSCP, ISO Lead Auditors, CISA</td></tr>
+        <tr><td>Tailored Approach</td><td>Customized solutions for size, industry & regulations</td></tr>
+        <tr><td>End-to-End Support</td><td>From strategy to audit, testing to remediation</td></tr>
+        <tr><td>Transparent Delivery</td><td>Clear reports, PoC validation, and timely execution</td></tr>
+    </table>
+</section>
+
+<!-- Industries -->
+<section id="industries" class="industries">
+    <h2>Industries We Serve</h2>
+    <div class="industries-list">
+        <div>Financial Services & Fintech</div>
+        <div>Healthcare & Telehealth</div>
+        <div>SaaS & IT Companies</div>
+        <div>Government & Public Sector</div>
+        <div>E-commerce & Retail</div>
+        <div>Educational Institutions</div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form method="POST" action="https://formspree.io/f/yourFormID">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Your Phone">
+        <input type="text" name="company" placeholder="Your Company">
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<footer>
+    &copy; 2025 SecuCheck. All Rights Reserved.
+</footer>
+
+<script>
+function toggleMenu(){
+    document.querySelector('nav ul').classList.toggle('show');
+}
+</script>
+
+</body>
+</html>
